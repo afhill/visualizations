@@ -55,13 +55,7 @@
 
             arc.append("path")
                .attr("d", path)
-               .attr("fill", function(d) { return color(d.data.browser); })
-               .on("mouseover",function() {
-                  d3.select(this).style("stroke", "black");
-                })
-              .on("mouseout",function(){
-                  d3.select(this).style("stroke", "none");
-              });
+               .attr("fill", function(d) { return color(d.data.browser); });
 
 
             console.log(arc)
