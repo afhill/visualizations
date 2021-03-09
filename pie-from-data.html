@@ -56,6 +56,21 @@
             arc.append("path")
                .attr("d", path)
                .attr("fill", function(d) { return color(d.data.browser); });
+               .on("mouseover", function(){
+                           d3.select(this)
+                             .style("background-color", "orange");
+
+                           // Get current event info
+                           console.log(d3.event);
+
+                           // Get x & y co-ordinates
+                           console.log(d3.mouse(this));
+                       })
+                       .on("mouseout", function(){
+                           d3.select(this)
+                             .style("background-color", "steelblue")
+                       });
+
 
             console.log(arc)
 
@@ -66,11 +81,18 @@
                .text(function(d) { return d.data.browser; });
             });
 
+
+
+
             svg.append("g")
                .attr("transform", "translate(" + (width / 2 - 120) + "," + 20 + ")")
                .append("text")
                .text("Browser use statistics - Jan 2017")
                .attr("class", "title")
+
+
+
+
     </script>
 </body>
 </html>
